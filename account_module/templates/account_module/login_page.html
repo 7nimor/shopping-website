@@ -1,0 +1,31 @@
+{% extends 'shared/_layout.html' %}
+{% block title %}
+    ثبت نام در سایت
+{% endblock %}
+{% block body %}
+    <section id="form"><!--form-->
+
+        <div class="row">
+
+            <div class="col-sm-6 col-md-offset-3">
+
+                <div class="signup-form"><!--sign up form-->
+
+                    <h2>ورود</h2>
+                    <form method="post" action="{% url 'login_page' %}">
+                        {% csrf_token %}
+
+
+                        {{ login_form.email.label }}
+                        {{ login_form.email }}
+                 
+                        {{ login_form.password.label }}
+                        {{ login_form.password }}
+                        <a href="{% url 'forget_page' %}"><p>رمز عبور خود را فراموش کرده اید؟</p></a>
+                        <button type="submit" class="btn btn-default">ورود</button>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </section>
+{% endblock %}
